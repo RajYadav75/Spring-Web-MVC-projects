@@ -31,7 +31,7 @@
                 <td>Course:</td>
 
                 <td>
-                    <form:select path="course">
+                    <form:select path="courses">
                         <form:option value="">-Select-</form:option>
 <%--                        <form:option value="Java">-Java-</form:option>--%>
 <%--                        <form:option value="Python">-Python-</form:option>--%>
