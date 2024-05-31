@@ -5,12 +5,15 @@ import in.raj.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class ProductController {
@@ -27,7 +30,12 @@ public class ProductController {
 
 
     @PostMapping("/product")
-    public String saveProduct(@ModelAttribute("product") Product p, Model model){
+    public String saveProduct(@Validated @ModelAttribute("product") Product p, BindingResult result, Model model){
+
+        if (result.hasErrors()) {
+            System.out.println(p);
+            return "index";
+        }
         p = repo.save(p);
         if(p.getPid()!=null){
             model.addAttribute("msg", "Product Saved");
@@ -50,5 +58,15 @@ public class ProductController {
         model.addAttribute("msg", "Product Deleted");
         model.addAttribute("products",repo.findAll());
         return "data";
+    }
+
+    @GetMapping("/edit")
+    public String edit(@RequestParam("pid") Integer pid, Model model){
+        Optional<Product> findById = repo.findById(pid);
+        if(findById.isPresent()){
+            Product product = findById.get();
+            model.addAttribute("product", product);
+        }
+        return "index";
     }
 }

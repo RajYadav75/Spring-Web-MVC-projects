@@ -13,22 +13,26 @@
         <form method="post" th:action="@{/product}" th:object="${product}">
             <table>
                 <tr>
+                    <input type="hidden" th:field="*{pid}"/>
                     <td>Name:</td>
                     <td>
-                        <input type="text" th:field="*{name}"/>
+                        <input type="text" th:field="*{name}" />
                     </td>
+                    <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></td>
                 </tr>
                 <tr>
                     <td>Price:</td>
                     <td>
-                        <input type="number" th:field="*{price}"/>
+                        <input type="number" th:field="*{price}" />
                     </td>
+                    <td th:if="${#fields.hasErrors('price')}" th:errors="*{price}" class="text-danger"></td>
                 </tr>
                 <tr>
                     <td>Quantity:</td>
                     <td>
-                        <input type="number" th:field="*{qty}"/>
+                        <input type="number" th:field="*{qty}" />
                     </td>
+                    <td th:if="${#fields.hasErrors('qty')}" th:errors="*{qty}" class="text-danger"></td>
                 </tr>
                 <tr>
                     <td>
