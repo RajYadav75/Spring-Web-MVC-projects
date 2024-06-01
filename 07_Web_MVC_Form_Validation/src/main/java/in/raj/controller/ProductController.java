@@ -37,8 +37,6 @@ public class ProductController {
         }
         return "index";
     }
-
-
     @GetMapping("/products")
     public String getAllProducts(Model model){
         List<Product> list = repo.findAll();
