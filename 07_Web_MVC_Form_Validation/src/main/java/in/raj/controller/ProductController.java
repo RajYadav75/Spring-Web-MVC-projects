@@ -19,16 +19,11 @@ import java.util.Optional;
 public class ProductController {
     @Autowired
     private ProductRepository repo;
-
-
-
     @GetMapping("/")
     public String loadForm(Model model){
         model.addAttribute("product", new Product());
         return "index";
     }
-
-
     @PostMapping("/product")
     public String saveProduct(@Validated @ModelAttribute("product") Product p, BindingResult result, Model model){
 
@@ -69,4 +64,5 @@ public class ProductController {
         }
         return "index";
     }
+
 }
