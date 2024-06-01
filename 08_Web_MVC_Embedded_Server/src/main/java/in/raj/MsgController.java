@@ -3,9 +3,11 @@ package in.raj;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
+@RequestMapping("/welcome")
 public class MsgController {
     @GetMapping("/")
     public String welcomeMsg(Model model){
@@ -13,7 +15,7 @@ public class MsgController {
         return "index";
     }
 
-    @GetMapping("/welcome")
+    @GetMapping("/hello")
     @ResponseBody
     public String sayHello(Model model){
         String msg = "Hello, How are you?";
