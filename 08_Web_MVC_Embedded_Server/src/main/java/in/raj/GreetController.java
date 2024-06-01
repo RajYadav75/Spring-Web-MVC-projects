@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class GreetController {
-    @GetMapping("/welcome")
+    @GetMapping("/welc")
     public String m1(Model model){
         model.addAttribute("msg", "Good Morning");
         return "index";
