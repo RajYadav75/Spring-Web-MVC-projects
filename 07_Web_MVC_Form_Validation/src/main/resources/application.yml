@@ -1,0 +1,10 @@
+spring:
+    application:
+        name: 07_Web_MVC_Form_Validation
+    datasource:
+        driver-class-name: org.h2.Driver
+        password: raj
+        url: jdbc:h2:mem:rajdb
+        username: raj
+server:
+    port: 8115
