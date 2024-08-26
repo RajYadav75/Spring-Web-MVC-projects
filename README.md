@@ -84,7 +84,7 @@ Query Paramters / Request Params
 => Starts with ? symbol
 => Will be seperated by & symbol
 
-	URL : www.rajech.com/course?name=sbms&trainer=ashok
+	URL : www.rajech.com/course?name=sbms&trainer=raj
 
 => To Read query params we will use @RequestParam annotation
 
@@ -92,7 +92,7 @@ Query Paramters / Request Params
 @Controller
 public class BookController {
 
-	// http://localhost:8080/msg?name=ashok
+	// http://localhost:8080/msg?name=raj
 
 	@GetMapping("/msg")
 	public ModelAndView getMsg(@RequestParam String name) {
@@ -192,7 +192,7 @@ public class MyController {
 	@GetMapping("/welcome")
 	public ModelAndView getWelcomeMsg(@RequestParam String name) {
 
-		String msgTxt = name + ", Welcome to Ashok IT..";
+		String msgTxt = name + ", Welcome to raj IT..";
 
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("msg", msgTxt);
@@ -443,7 +443,7 @@ public class MessageController {
 	@GetMapping("/welcome")
 	@ResponseBody
 	public String getWelcomeMsg() {
-		return "Welcome to Ashok IT..!!";
+		return "Welcome to raj IT..!!";
 	}
 
 	@GetMapping("/greet")
